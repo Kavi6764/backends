@@ -10,7 +10,7 @@ router.get("/get", async (req, res) => {
   const user = await User.find();
   res.json(user);
 });
-router.post("/Signin", async (req, res) => {
+router.post("/Signup", async (req, res) => {
   const { email, password } = req.body;
   const hashedpassword = await hashGenarating(password);
   const user = await new User({
@@ -26,7 +26,7 @@ router.post("/Signin", async (req, res) => {
     });
   }
 });
-router.post("/Signup", async (req, res) => {
+router.post("/Signin", async (req, res) => {
   const { email, password } = req.body;
 
   const Existinguser = await User.findOne({ email: email });
